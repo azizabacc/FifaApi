@@ -6,7 +6,6 @@ const router = express.Router();
 router.get('/players', async (req, res) => {
 try {
     const players = await Player.find({});
-    res.render('playerList.ejs',{players : players})
     res.json(players);
 } catch (err) {
     console.log(err);
@@ -19,9 +18,7 @@ try {
 router.get('/players/:name', async (req, res) => {
     try {
         const player = await Player.find({name : req.params.name});
-        res.render("player.ejs",{player : player[0]})
-        
-        /* res.json(player); */
+        res.json(player);
     } catch (err) {
         console.log(err);
         res.status(500).send('Server error');
