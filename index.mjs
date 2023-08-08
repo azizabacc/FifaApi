@@ -1,11 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
-
+import dotenv from 'dotenv';
+dotenv.config({path :"./config/.env"})
 const app = express();
 
 //connection to database
-const YOUR_CONNECTION_STRING_HERE = "mongodb+srv://azizabacc:quQqOC0exDbTAUzw@clustermongodbintro.nk9hiym.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(YOUR_CONNECTION_STRING_HERE, {
+const atlasUri  = process.env.atlasUri 
+mongoose.connect(atlasUri , {
 useNewUrlParser: true,
 useUnifiedTopology: true
 }).then(() => {
