@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/players', async (req, res) => {
 try {
     const players = await Player.find({});
-    console.log(players);
+    res.render('playerList.ejs',{players : players})
     res.json(players);
 } catch (err) {
     console.log(err);
@@ -18,8 +18,21 @@ try {
 // example : http://localhost:3000/api/players/Kylian%20Mbapp%C3%A9
 router.get('/players/:name', async (req, res) => {
     try {
-        const players = await Player.find({name : req.params.name});
-        console.log(players);
+        const player = await Player.find({name : req.params.name});
+        res.render("player.ejs",{player : player[0]})
+        
+        /* res.json(player); */
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
+    });
+
+// get player by country 
+// example : http://localhost:3000/api/players/Kylian%20Mbapp%C3%A9
+router.get('/players/countries/:country', async (req, res) => {
+    try {
+        const players = await Player.find({nationality : req.params.country});
         res.json(players);
     } catch (err) {
         console.log(err);
