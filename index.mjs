@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import apiRouter from './routes/api.js'
+
 dotenv.config({path :"./config/.env"})
 const app = express();
 
@@ -17,11 +19,14 @@ console.log(err);
 
 // routes
 app.set('view engine', 'ejs');
+app.use(express.json())
+app.use(express.urlencoded({extended : false}))
 
 app.get('/', (req, res) => {
 res.render('index');
 });
 
+app.use('/api', apiRouter);
 app.listen(3000, () => {
 console.log('Server started on port 3000');
 });
