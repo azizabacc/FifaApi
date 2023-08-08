@@ -4,7 +4,12 @@ const playerSchema = new mongoose.Schema({
 name: String,
 nationality: String,
 club: String,
-overallRating: Number
+overallRating: Number,
+playerImg: String,
+flagImg: String,
+clubImg: String
+
+
 });
 
 const Player = mongoose.model('players', playerSchema);
