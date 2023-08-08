@@ -3,7 +3,7 @@
 The objective of this challenge is to create a non-relational database using MongoDB Atlas, and scrape data from https://www.fifaindex.com/players/. Your application should be able to store and display player information, including player name, age, nationality, position, club, and ratings.
 ## Clone repository
 ```sh
-git clone ..
+git clone https://github.com/azizabacc/scrampingFullStack.git
 
 ```
 ## Scraping
@@ -16,5 +16,18 @@ OR
 ```sh
 npm install puppeteer
 ```
+## save data in Database
+```sh
+npm install mongodb
+```
+## server
+```sh
+npm install express ejs
+npm install --save-dev nodemon 
 
+```
 
+## Database to interact with server
+```sh
+ npm install mongoose
+```
