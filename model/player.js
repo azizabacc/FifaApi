@@ -1,13 +1,14 @@
 import mongoose from 'mongoose';
 
 const playerSchema = new mongoose.Schema({
-name: String,
-nationality: String,
-club: String,
-overallRating: Number,
-playerImg: String,
-flagImg: String,
-clubImg: String
+    playerId : String,
+    name: String,
+    nationality: String,
+    club: String,
+    overallRating: Number,
+    playerImg: String,
+    flagImg: String,
+    clubImg: String
 
 
 });
